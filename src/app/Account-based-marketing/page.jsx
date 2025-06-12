@@ -702,10 +702,7 @@ const AccountBasedMarketingPage = () => {
     </section>
       
 
-      {/* Scroll Indicator */}
-      <div className="fixed bottom-8 right-8 animate-bounce">
-        <ChevronDown className="w-8 h-8 text-emerald-400" />
-      </div>
+      
     </div>
 
     <LogoScroll/>
