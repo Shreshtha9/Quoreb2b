@@ -754,7 +754,7 @@ const EmailMarketingLanding = () => {
                     Basic reporting
                   </li>
                 </ul>
-                <button className="w-full bg-emerald-400 text-white font-semibold py-3 px-6 rounded-lg hover:bg-emerald-500 transition-colors duration-300 group-hover:scale-105 transform">
+                <button className="w-full bg-emerald-400 text-white mt-18 font-semibold py-3 px-6 rounded-lg hover:bg-emerald-500 transition-colors duration-300 group-hover:scale-105 transform">
                   Get Started
                 </button>
               </div>
