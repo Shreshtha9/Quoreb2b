@@ -62,7 +62,7 @@ const solutions = [
   { 
     name: "Intent Leads", 
     image: "/images/solution3.jpg", 
-    link: "#",
+    link: "/Intent-leads",
     alt: "Intent leads solutions"
   },
   { 

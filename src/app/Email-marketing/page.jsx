@@ -925,56 +925,7 @@ const EmailMarketingLanding = () => {
           </div>
         </div>
       </section>
-      {/* FAQ Section */}
-      <div className="bg-white rounded-2xl p-6 md:p-10 shadow-md max-w-2xl mx-auto">
-        <div className="mb-8 text-center">
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <CircleHelp className="w-7 h-7 text-emerald-500" />
-            <h2 className="text-emerald-600 text-3xl font-semibold">
-              Frequently Asked Questions
-            </h2>
-          </div>
-          <p className="text-gray-500 text-sm max-w-md mx-auto">
-            Get answers to common questions about our email marketing services.
-          </p>
-        </div>
-
-        <div className="space-y-3">
-          {faqs.map((faq) => (
-            <div
-              key={faq.id}
-              className="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm transition-shadow hover:shadow-md"
-            >
-              <button
-                onClick={() => toggleFAQ(faq.id)}
-                className="w-full px-5 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full flex-shrink-0"></div>
-                  <span className="text-gray-800 font-medium text-sm">
-                    {faq.question}
-                  </span>
-                </div>
-                {openFAQ === faq.id ? (
-                  <ChevronUp className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                ) : (
-                  <ChevronDown className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                )}
-              </button>
-
-              {openFAQ === faq.id && (
-                <div className="px-5 pb-4 transition-all duration-300 ease-in-out">
-                  <div className="pl-4 border-l-2 border-emerald-100">
-                    <div className="text-gray-600 text-sm leading-relaxed">
-                      {faq.answer}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
+     
 
       {/* Enhanced Subscribe Section */}
       <div className="relative bg-white   md:p-10  max-w-2xl mx-auto rounded-3xl p-8 shadow-lg overflow-hidden mt-4">
@@ -1048,6 +999,58 @@ const EmailMarketingLanding = () => {
           )}
         </div>
       </div>
+
+       {/* FAQ Section */}
+      <div className="bg-white rounded-2xl p-6 md:p-10 shadow-md max-w-2xl mx-auto">
+        <div className="mb-8 text-center">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <CircleHelp className="w-7 h-7 text-emerald-500" />
+            <h2 className="text-emerald-600 text-3xl font-semibold">
+              Frequently Asked Questions
+            </h2>
+          </div>
+          <p className="text-gray-500 text-sm max-w-md mx-auto">
+            Get answers to common questions about our email marketing services.
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {faqs.map((faq) => (
+            <div
+              key={faq.id}
+              className="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm transition-shadow hover:shadow-md"
+            >
+              <button
+                onClick={() => toggleFAQ(faq.id)}
+                className="w-full px-5 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium text-sm">
+                    {faq.question}
+                  </span>
+                </div>
+                {openFAQ === faq.id ? (
+                  <ChevronUp className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                )}
+              </button>
+
+              {openFAQ === faq.id && (
+                <div className="px-5 pb-4 transition-all duration-300 ease-in-out">
+                  <div className="pl-4 border-l-2 border-emerald-100">
+                    <div className="text-gray-600 text-sm leading-relaxed">
+                      {faq.answer}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+      
     </div>
     <LogoScroll />
     </>
