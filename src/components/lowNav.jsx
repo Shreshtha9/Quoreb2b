@@ -221,8 +221,8 @@ export default function LowNav() {
                 <Image
                   src="/images/ICONH.jpg"
                   alt="Quore B2B Icon"
-                  width={45}
-                  height={30}
+                  width={35}
+                  height={25}
                   className="rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300 group-hover:scale-105"
                   priority // Prioritize loading the logo
                 />
