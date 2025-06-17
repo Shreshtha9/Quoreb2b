@@ -264,7 +264,7 @@ export default function LowNav() {
               {/* Services Dropdown */}
               <div className="relative group">
                 <Link
-                  href="https://www.quoreb2b.com/service"
+                  href="/Services"
                   className="flex items-center text-gray-700 hover:text-teal-600 font-bold text-sm tracking-wide transition-all duration-300"
                   aria-label="Our services"
                   aria-haspopup="true"
