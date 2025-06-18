@@ -30,9 +30,10 @@ import {
   Megaphone,
   User,
   Laptop,
+  UserCheck,
 } from "lucide-react";
 import Image from 'next/image';
-
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Head from "next/head";
 import dynamic from "next/dynamic";
@@ -54,32 +55,44 @@ const ServicesSection = () => {
     {
       icon: <Megaphone size={24} className="text-green-500" />,
       title: "Display Advertisement",
+      link: "/services/display-advertisement",
       description:
         "With our expertise in creating compelling digital campaigns, we are dedicated to helping businesses achieve unparalleled success in lead generation and customer acquisition.",
     },
     {
       icon: <User size={24} className="text-green-500" />,
       title: "Account-Based Marketing",
+      link: "/services/account-based-marketing",
       description:
         "Account-based marketing (ABM) strategy encompasses a holistic approach that combines data-driven insights, cutting-edge technology, and personalized touch to help you win over target accounts and achieve exceptional ROI.",
     },
     {
       icon: <Target size={24} className="text-green-500" />,
       title: "Lead Generation",
+      link: "/services/lead-generation",
       description:
         "Elevate your lead generation efforts and expand your reach through strategic content syndication with Quora B2B Marketing. Partner with us to drive quality leads and maximize your marketing impact.",
     },
     {
       icon: <Database size={24} className="text-green-500" />,
       title: "Data Solutions",
+      link: "/services/data-solutions",
       description:
         "Why settle for outdated and unreliable data when you can harness the power of our Verified Database Solutions? Partner with Quora B2B Marketing today and unlock the potential of accurate and reliable data for your B2B marketing success.",
     },
     {
       icon: <Laptop size={24} className="text-green-500" />,
       title: "Web Development",
+      link: "/services/web-development",
       description:
         "We provide end-to-end web development solutions, ensuring secure, scalable, and user-friendly digital experiences. Our expertise in modern technologies helps businesses establish a strong online presence and drive growth. From design to deployment, we deliver seamless and efficient web solutions.",
+    },
+    {
+      icon: <UserCheck size={24} className="text-green-500" />,
+      title: "CRM",
+      link: "/services/crm",
+      description:
+        "Streamline your customer relationships with our comprehensive CRM solutions. We help businesses manage customer interactions, automate sales processes, and improve customer retention through intelligent data management and personalized communication strategies.",
     },
   ];
 
@@ -129,6 +142,15 @@ const ServicesSection = () => {
     { metric: "Browser Compatibility", score: 93, benchmark: 78, unit: "%" },
   ];
 
+  const crmData = [
+    { month: "Jan", customers: 1200, retention: 85, satisfaction: 88 },
+    { month: "Feb", customers: 1350, retention: 87, satisfaction: 90 },
+    { month: "Mar", customers: 1450, retention: 89, satisfaction: 92 },
+    { month: "Apr", customers: 1600, retention: 91, satisfaction: 94 },
+    { month: "May", customers: 1750, retention: 93, satisfaction: 96 },
+    { month: "Jun", customers: 1900, retention: 95, satisfaction: 98 },
+  ];
+
   const servicesData = [
     {
       id: 0,
@@ -136,7 +158,8 @@ const ServicesSection = () => {
       description:
         "Boost your brand visibility with targeted display campaigns that drive engagement and conversions across all digital platforms.",
       icon: <Target className="w-8 h-8" />,
-      color: "from-blue-500 to-blue-600",
+      link: "/services/display-advertisement",
+      color: "from-teal-400 to-teal-400",
       stats: "2.3x ROI Increase",
       graph: (
         <ResponsiveContainer width="100%" height={280}>
@@ -161,8 +184,8 @@ const ServicesSection = () => {
               type="monotone"
               dataKey="impressions"
               stackId="1"
-              stroke="#3b82f6"
-              fill="#3b82f6"
+              stroke="#00d8a6"
+              fill="#00d8a6"
               fillOpacity={0.3}
               strokeWidth={2}
             />
@@ -185,6 +208,7 @@ const ServicesSection = () => {
       description:
         "Personalized marketing strategies that target high-value accounts with precision and measurable impact on your bottom line.",
       icon: <Users className="w-8 h-8" />,
+      link: "/services/account-based-marketing",
       color: "from-green-500 to-green-600",
       stats: "68% Higher Conversion",
       graph: (
@@ -218,6 +242,7 @@ const ServicesSection = () => {
       description:
         "Generate high-quality leads through multi-channel campaigns that convert prospects into loyal customers effectively.",
       icon: <TrendingUp className="w-8 h-8" />,
+      link: "/services/lead-generation",
       color: "from-amber-500 to-amber-600",
       stats: "5x Lead Quality",
       graph: (
@@ -265,6 +290,7 @@ const ServicesSection = () => {
       description:
         "Transform raw data into actionable insights with our comprehensive analytics and intelligent reporting solutions.",
       icon: <Database className="w-8 h-8" />,
+      link: "/services/data-solutions",
       color: "from-red-500 to-red-600",
       stats: "90% Data Accuracy",
       graph: (
@@ -306,6 +332,7 @@ const ServicesSection = () => {
       description:
         "Create stunning, responsive websites that deliver exceptional user experiences and drive measurable business results.",
       icon: <Globe className="w-8 h-8" />,
+      link: "/services/web-development",
       color: "from-purple-500 to-purple-600",
       stats: "98% Performance Score",
       graph: (
@@ -358,6 +385,54 @@ const ServicesSection = () => {
               name="score"
             />
           </BarChart>
+        </ResponsiveContainer>
+      ),
+    },
+    {
+      id: 5,
+      title: "CRM",
+      description:
+        "Streamline your customer relationships with our comprehensive CRM solutions that boost retention and drive growth.",
+      icon: <UserCheck className="w-8 h-8" />,
+      link: "/services/crm",
+      color: "from-blue-500 to-blue-600",
+      stats: "95% Customer Retention",
+      graph: (
+        <ResponsiveContainer width="100%" height={280}>
+          <LineChart data={crmData}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#e0e7ff" />
+            <XAxis
+              dataKey="month"
+              stroke="#6b7280"
+              fontSize={12}
+              tick={{ fill: "#6b7280" }}
+            />
+            <YAxis stroke="#6b7280" fontSize={12} tick={{ fill: "#6b7280" }} />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "#ffffff",
+                border: "1px solid #e2e8f0",
+                borderRadius: "12px",
+                boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+              }}
+            />
+            <Line
+              type="monotone"
+              dataKey="customers"
+              stroke="#3b82f6"
+              strokeWidth={3}
+              dot={{ fill: "#3b82f6", strokeWidth: 2, r: 6 }}
+              activeDot={{ r: 8, fill: "#3b82f6" }}
+            />
+            <Line
+              type="monotone"
+              dataKey="retention"
+              stroke="#1d4ed8"
+              strokeWidth={2}
+              dot={{ fill: "#1d4ed8", strokeWidth: 2, r: 4 }}
+              activeDot={{ r: 6, fill: "#1d4ed8" }}
+            />
+          </LineChart>
         </ResponsiveContainer>
       ),
     },
@@ -445,99 +520,61 @@ const ServicesSection = () => {
             Lead Generation Smart Data Solutions, Lightning-Fast,
             High-Converting Websites.
           </p>
-          <button
-            className="text-sm font-medium px-6 py-3 rounded-full bg-gradient-to-r from-lime-300 to-emerald-400 text-white shadow-md hover:scale-105 transition-transform duration-300"
-            aria-label="View all services"
-          >
-            VIEW ALL
-          </button>
+          <Link href="/services" passHref>
+            <button
+              className="text-sm font-medium px-6 py-3 rounded-full bg-gradient-to-r from-lime-300 to-emerald-400 text-white shadow-md hover:scale-105 transition-transform duration-300"
+              aria-label="View all services"
+            >
+              VIEW ALL
+            </button>
+          </Link>
         </div>
 
         <div className="md:w-1/2 w-full">
+          {/* Grid container for all 6 cards - 3 rows of 2 cards each */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {services.slice(0, 4).map((service, index) => (
-              <article
-                key={index}
-                onMouseEnter={() => setActiveIndex(index)}
-                onMouseLeave={() => setActiveIndex(null)}
-                onFocus={() => setActiveIndex(index)}
-                onBlur={() => setActiveIndex(null)}
-                className={`rounded-xl p-5 cursor-pointer transition-all duration-300 shadow-md hover:scale-[1.02] min-h-[350px] h-auto flex flex-col gap-2 overflow-hidden
-                    ${
-                      activeIndex === index
-                        ? "bg-gradient-to-br from-teal-400 to-lime-400 text-white"
-                        : "bg-white text-gray-800"
+            {services.map((service, index) => (
+              <Link key={index} href={service.link} passHref>
+                <article
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onMouseLeave={() => setActiveIndex(null)}
+                  onFocus={() => setActiveIndex(index)}
+                  onBlur={() => setActiveIndex(null)}
+                  className={`rounded-xl p-5 cursor-pointer transition-all duration-300 shadow-md hover:scale-[1.02] min-h-[350px] h-auto flex flex-col gap-2 overflow-hidden
+                      ${
+                        activeIndex === index
+                          ? "bg-gradient-to-br from-teal-400 to-lime-400 text-white"
+                          : "bg-white text-gray-800"
+                      }`}
+                  tabIndex={0}
+                  aria-labelledby={`service-title-${index}`}
+                >
+                  <div className="mb-2 flex-shrink-0">
+                    {activeIndex === index ? (
+                      <div className="text-white">{service.icon}</div>
+                    ) : (
+                      service.icon
+                    )}
+                  </div>
+                  <h3
+                    id={`service-title-${index}`}
+                    className={`text-xl font-semibold flex-shrink-0 ${
+                      activeIndex === index ? "text-white" : "text-gray-900"
                     }`}
-                tabIndex={0}
-                aria-labelledby={`service-title-${index}`}
-              >
-                <div className="mb-2 flex-shrink-0">
-                  {activeIndex === index ? (
-                    <div className="text-white">{service.icon}</div>
-                  ) : (
-                    service.icon
-                  )}
-                </div>
-                <h3
-                  id={`service-title-${index}`}
-                  className={`text-xl font-semibold flex-shrink-0 ${
-                    activeIndex === index ? "text-white" : "text-gray-900"
-                  }`}
-                >
-                  {service.title}
-                </h3>
-                <p
-                  className={`text-sm leading-snug flex-1 overflow-hidden ${
-                    activeIndex === index ? "text-white/90" : "text-gray-600"
-                  }`}
-                >
-                  {service.description}
-                </p>
-              </article>
+                  >
+                    {service.title}
+                  </h3>
+                  <p
+                    className={`text-sm leading-snug flex-1 overflow-hidden ${
+                      activeIndex === index ? "text-white/90" : "text-gray-600"
+                    }`}
+                  >
+                    {service.description}
+                  </p>
+                </article>
+              </Link>
             ))}
           </div>
-
-          {services.length > 4 && (
-            <div className="flex justify-center mt-6">
-              <article
-                onMouseEnter={() => setActiveIndex(4)}
-                onMouseLeave={() => setActiveIndex(null)}
-                onFocus={() => setActiveIndex(4)}
-                onBlur={() => setActiveIndex(null)}
-                className={`rounded-xl p-5 cursor-pointer transition-all duration-300 shadow-md hover:scale-[1.02] min-h-[350px] h-auto flex flex-col gap-2 overflow-hidden w-full sm:w-[calc(50%-0.75rem)] max-w-[400px]
-                    ${
-                      activeIndex === 4
-                        ? "bg-gradient-to-br from-teal-400 to-lime-400 text-white"
-                        : "bg-white text-gray-800"
-                    }`}
-                tabIndex={0}
-                aria-labelledby="service-title-4"
-              >
-                <div className="mb-2 flex-shrink-0">
-                  {activeIndex === 4 ? (
-                    <div className="text-white">{services[4].icon}</div>
-                  ) : (
-                    services[4].icon
-                  )}
-                </div>
-                <h3
-                  id="service-title-4"
-                  className={`text-xl font-semibold flex-shrink-0 ${
-                    activeIndex === 4 ? "text-white" : "text-gray-900"
-                  }`}
-                >
-                  {services[4].title}
-                </h3>
-                <p
-                  className={`text-sm leading-snug flex-1 overflow-hidden ${
-                    activeIndex === 4 ? "text-white/90" : "text-gray-600"
-                  }`}
-                >
-                  {services[4].description}
-                </p>
-              </article>
-            </div>
-          )}
         </div>
       </section>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -599,19 +636,23 @@ const ServicesSection = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
-                <button
-                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r ${servicesData[activeService].color} text-white font-semibold transition-transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
-                  aria-label={`Learn more about ${servicesData[activeService].title}`}
-                >
-                  Learn More
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-                <button
-                  className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-300 text-gray-700 font-semibold hover:border-gray-400 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-                  aria-label={`Get quote for ${servicesData[activeService].title}`}
-                >
-                  Get Quote
-                </button>
+                <Link href={servicesData[activeService].link} passHref>
+                  <button
+                    className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r ${servicesData[activeService].color} text-white font-semibold transition-transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
+                    aria-label={`Learn more about ${servicesData[activeService].title}`}
+                  >
+                    Learn More
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </Link>
+                <Link href="/contact" passHref>
+                  <button
+                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-300 text-gray-700 font-semibold hover:border-gray-400 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                    aria-label={`Get quote for ${servicesData[activeService].title}`}
+                  >
+                    Get Quote
+                  </button>
+                </Link>
               </div>
             </div>
 
