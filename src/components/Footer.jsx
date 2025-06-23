@@ -38,7 +38,7 @@ export default function Footer() {
             <div className="h-1 w-10 bg-[#00d8a6] mb-7 mt-3 rounded-sm"></div>
           </div>
           <ul className="space-y-2 text-sm text-gray-900">
-            <li><Link href="/careers" className="hover:text-[#00d8a6] transition">Careers</Link></li>
+            <li><Link href="/Careers" className="hover:text-[#00d8a6] transition">Careers</Link></li>
             <li><Link href="/about" className="hover:text-[#00d8a6] transition">About</Link></li>
             <li><Link href="/terms" className="hover:text-[#00d8a6] transition">Terms of use</Link></li>
             <li><Link href="/privacy" className="hover:text-[#00d8a6] transition">Privacy & Policy</Link></li>
