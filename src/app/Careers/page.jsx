@@ -202,7 +202,7 @@ const CareerPage = () => {
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
         <section
-          className="relative bg-cover  sm:h-[200px] md:h-[400px] lg:h-[500px] bg-no-repeat"
+          className="relative bg-cover  sm:h-[200px] md:h-[400px] lg:h-[650px] bg-no-repeat"
           style={{ backgroundImage: "url('/images/careers.jpg')" }}
         >
              
